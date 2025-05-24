@@ -1,0 +1,35 @@
+#!/bin/bash
+if [ -z "$2" ]; then
+   echo "Usage: $0 input.mp3 output.mp3"
+else
+   sox $1 $2 noisered /opt/sox/noise.prof 0.21 pitch -250 speed 0.95
+fi
+if [ "$3" = "play" ]; then
+    play $2
+fi
+if [ "$3" = "rm" ]; then
+    rm $1
+fi
+if [ "$3" = "mp3" ]; then
+    ffmpeg -i $2 $2.mp3
+fi
+
+if [ "$4" = "play" ]; then
+    play $2
+fi
+if [ "$4" = "rm" ]; then
+    rm $1
+fi
+if [ "$4" = "mp3" ]; then
+    ffmpeg -i $2 $2.mp3
+fi
+
+if [ "$5" = "play" ]; then
+    play $2
+fi
+if [ "$5" = "rm" ]; then
+    rm $1
+fi
+if [ "$5" = "mp3" ]; then
+    ffmpeg -i $2 $2.mp3
+fi
